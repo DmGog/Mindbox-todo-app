@@ -12,8 +12,8 @@ export const AddItem = memo(function ({addItem}: Props) {
         const addItemHandler = () => {
             if (title.trim() === "") {
                 setError("Title is required")
-            } else if (title.length > 100) {
-                setError("Title must be 100 characters or less")
+            } else if (title.length > 30) {
+                setError("Title must be 30 characters or less")
             } else {
                 addItem(title)
                 setTitle("")

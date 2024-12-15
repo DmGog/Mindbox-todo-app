@@ -36,6 +36,7 @@ export const Todolist = () => {
         return true;
     });
 
+
     const totalActiveTasks = tasks.filter(task => !task.isDone);
 
     return (

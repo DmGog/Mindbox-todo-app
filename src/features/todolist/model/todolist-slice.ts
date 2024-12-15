@@ -41,9 +41,22 @@ const slice = createSlice({
             if (task) {
                 task.isDone = !task.isDone;
             }
+        },
+        changeTaskTitle(state, action: PayloadAction<{ title: string, id: string }>) {
+            const task = state.tasks.find(task => task.id === action.payload.id);
+            if (task) {
+                task.title = action.payload.title;
+            }
         }
     }
 })
 
 export const todolistSlice = slice.reducer
-export const {addTask, deleteTask, changeFilter, changeTaskStatus, deleteCompletedTasks} = slice.actions
+export const {
+    addTask,
+    deleteTask,
+    changeFilter,
+    changeTaskStatus,
+    deleteCompletedTasks,
+    changeTaskTitle
+} = slice.actions

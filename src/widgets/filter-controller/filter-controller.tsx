@@ -16,7 +16,7 @@ export const FilterController = ({currentFilter, changeFilter}: Props) => {
                     onClickHandler={() => changeFilter("active")} disabled={currentFilter === "active"}>Active</Button>
             <Button variant={currentFilter === "completed" ? "active" : "default"}
                     onClickHandler={() => changeFilter("completed")}
-                    disabled={currentFilter === "completed"}>Completed</Button>
+                    disabled={currentFilter === "completed"} >Completed</Button>
         </div>
     );
 };
