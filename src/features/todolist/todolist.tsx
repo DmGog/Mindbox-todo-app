@@ -3,7 +3,7 @@ import {addTask, changeFilter, changeTaskStatus, deleteCompletedTasks, deleteTas
 import {useSelector} from "react-redux";
 import s from "./todolist.module.scss"
 import {FilterController, Task} from "../../widgets";
-import {AddItem} from "../../shared";
+import {AddItem, Button} from "../../shared";
 
 
 export const Todolist = () => {
@@ -35,6 +35,9 @@ export const Todolist = () => {
         if (currentFilter === "active") return !task.isDone;
         return true;
     });
+
+    const totalActiveTasks = tasks.filter(task => !task.isDone);
+
     return (
         <div className={s.todolist}>
             <div className={s.container}>
@@ -44,8 +47,12 @@ export const Todolist = () => {
                                  updateStatus={handleChangeTaskStatus}/>
                 })}
             </div>
-            <FilterController changeFilter={handleChangeFilter} currentFilter={currentFilter}
-                              clearCompleted={handleDeleteCompletedTasks} totalTasks={tasks.length}/>
+            <div className={s.activePanel}>
+                <span
+                    className={s.totalActiveTask}>{totalActiveTasks.length ? `${totalActiveTasks.length} items left` : "no tasks left"}</span>
+                <FilterController changeFilter={handleChangeFilter} currentFilter={currentFilter}/>
+                <Button onClickHandler={handleDeleteCompletedTasks}>Clear completed</Button>
+            </div>
         </div>
     );
 };

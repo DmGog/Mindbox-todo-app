@@ -1,5 +1,5 @@
 import s from "./task.module.scss"
-import {Checkbox} from "../../shared/ui/checkbox";
+import {Button, Checkbox} from "../../shared";
 
 type Props = {
     id: string
@@ -12,9 +12,11 @@ type Props = {
 export const Task = ({title, isDone, deleteItem, id, updateStatus}: Props) => {
     return (
         <div className={s.task}>
-            <Checkbox isChecked={isDone} onChangeChecked={() => updateStatus(id)}/>
-            {title}
-            <button className={s.button} onClick={() => deleteItem(id)}>x</button>
+            <div className={s.container}>
+                <Checkbox isChecked={isDone} onChangeChecked={() => updateStatus(id)}/>
+                <span>{title}</span>
+            </div>
+            <Button className={s.deleteButton} onClickHandler={() => deleteItem(id)}>x</Button>
         </div>
     );
 };

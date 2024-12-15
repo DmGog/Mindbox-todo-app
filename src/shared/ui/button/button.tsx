@@ -1,15 +1,17 @@
 import s from "./button.module.scss"
+import {ReactNode} from "react";
 
 type Props = {
-    title: string
     onClickHandler: () => void
     disabled?: boolean
     variant?: "active" | "default"
+    children?: ReactNode
+    className?: string
 }
-export const Button = ({title, onClickHandler, disabled, variant = "default"}: Props) => {
-    const buttonClass = variant === "active" ? `${s.button} ${s.active}` : s.button;
+export const Button = ({onClickHandler, disabled, variant = "default", children, className}: Props) => {
+    const buttonClass = `${s.button} ${variant === "active" ? s.active : ""} ${className || ""}`.trim()
     return (
-        <button className={buttonClass} disabled={disabled} onClick={onClickHandler}>{title}</button>
+        <button className={buttonClass} disabled={disabled} onClick={onClickHandler}>{children}</button>
     );
 };
 

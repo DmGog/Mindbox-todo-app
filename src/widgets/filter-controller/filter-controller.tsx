@@ -5,24 +5,18 @@ import s from "./filter-controller.module.scss"
 type Props = {
     changeFilter: (filter: FilterType) => void;
     currentFilter: FilterType;
-    clearCompleted: () => void
-    totalTasks: number
 };
-export const FilterController = ({currentFilter, changeFilter, clearCompleted, totalTasks}: Props) => {
-
+export const FilterController = ({currentFilter, changeFilter}: Props) => {
 
     return (
         <div className={s.filterController}>
-            {totalTasks ? `${totalTasks} items left` : "no tasks left"}
             <Button variant={currentFilter === "all" ? "active" : "default"} onClickHandler={() => changeFilter("all")}
-                    disabled={currentFilter === "all"} title={"All"}/>
+                    disabled={currentFilter === "all"}>All</Button>
             <Button variant={currentFilter === "active" ? "active" : "default"}
-                    onClickHandler={() => changeFilter("active")} disabled={currentFilter === "active"}
-                    title={"Active"}/>
+                    onClickHandler={() => changeFilter("active")} disabled={currentFilter === "active"}>Active</Button>
             <Button variant={currentFilter === "completed" ? "active" : "default"}
                     onClickHandler={() => changeFilter("completed")}
-                    disabled={currentFilter === "completed"} title={"Completed"}/>
-            <Button onClickHandler={clearCompleted} disabled={!totalTasks} title={"Clear completed"}/>
+                    disabled={currentFilter === "completed"}>Completed</Button>
         </div>
     );
 };

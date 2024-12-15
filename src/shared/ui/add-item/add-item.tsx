@@ -46,7 +46,7 @@ export const AddItem = memo(function ({addItem}: Props) {
                     onKeyPress={onKeyPressHandler}
                     placeholder="What needs to be done?"
                 />
-                {title && <Button title={"add"} onClickHandler={addItemHandler}></Button>}
+                {title && <Button onClickHandler={addItemHandler}>add</Button>}
             </div>
         )
     }
