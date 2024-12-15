@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 30px;
+  padding: 5px 10px;
+
+  border-radius: 8px;
+
+  &:hover {
+    outline: 1px solid #D3D0D0FF;
+  }
+
+}
+
+.active {
+  outline: 1px solid #ffd6d6;
+}

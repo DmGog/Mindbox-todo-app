@@ -1,0 +1,37 @@
+.Root {
+  all: unset;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  margin-right: 14px;
+
+  opacity: 0.5;
+  border: 1px solid #D3D0D0FF;
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid #1d8c15;
+  }
+}
+
+.Indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  color: #1d8c15;
+
+  & svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+

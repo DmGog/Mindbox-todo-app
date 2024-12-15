@@ -1,78 +1,113 @@
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.5;
-    color: rgb(255 255 255 / 87%);
-    text-rendering: optimizelegibility;
+/*
+zero styles
+*/
 
-    color-scheme: light dark;
-    background-color: #242424;
-
-    font-synthesis: none;
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
-a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Links */
+
+a,
+a:link,
+a:visited {
+    text-decoration: none;
 }
 
 a:hover {
-    color: #535bf2;
+    text-decoration: none;
 }
 
-body {
-    display: flex;
-    place-items: center;
+/* Common */
 
-    min-width: 320px;
-    min-height: 100vh;
-    margin: 0;
+aside,
+nav,
+footer,
+header,
+section,
+main {
+    display: block;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-size: inherit;
+    font-weight: inherit;
 }
 
-button {
-    cursor: pointer;
+ul,
+ul li {
+    list-style: none;
+}
 
-    padding: 0.6em 1.2em;
+img {
+    vertical-align: top;
+}
 
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+address {
+    font-style: normal;
+}
+
+/* Form */
+
+input,
+textarea,
+button,
+select {
     font-family: inherit;
-    font-size: 1em;
-    font-weight: 500;
-
-    background-color: #1a1a1a;
-    border: 1px solid transparent;
-    border-radius: 8px;
-
-    transition: border-color 0.25s;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
 }
 
-button:hover {
-    border-color: #646cff;
+input::-ms-clear {
+    display: none;
 }
 
+button,
+input[type='submit'],
+input[type='checkbox'] {
+    cursor: pointer;
+    display: inline-block;
+    background: transparent none;
+    box-shadow: none;
+}
+
+input:focus,
+input:active,
 button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+button:active {
+    outline: none;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #fff;
-    }
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
 
-    a:hover {
-        color: #747bff;
-    }
+label {
+    cursor: pointer;
+}
 
-    button {
-        background-color: #f9f9f9;
-    }
+legend {
+    display: block;
 }

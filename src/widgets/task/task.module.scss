@@ -1,0 +1,22 @@
+.button {
+  display: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+
+  border-bottom: 1px solid #D3D0D0FF;
+
+  &:hover {
+    .button {
+      display: block;
+    }
+  }
+}
+
