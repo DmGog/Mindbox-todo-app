@@ -1,4 +1,6 @@
 import {ChangeEvent, memo, useEffect, useState} from "react";
+import s from "./inline-editor.module.scss";
+import {Tooltip} from "../tooltip";
 
 type Props = {
     value: string;
@@ -8,6 +10,7 @@ type Props = {
 
 export const InlineEditor = memo(function ({value, onChange, setEditMode}: Props) {
     let [title, setTitle] = useState(value);
+    let [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         setTitle(value);
@@ -15,19 +18,37 @@ export const InlineEditor = memo(function ({value, onChange, setEditMode}: Props
 
     const activateViewMode = () => {
         setEditMode(false);
-        onChange(title);
+        if (title.length > 40) {
+            setError("Title must be 40 characters or less");
+        } else {
+            onChange(title);
+            setError(null);
+        }
     };
 
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value);
+        const newValue = e.currentTarget.value;
+        setTitle(newValue);
+
+        if (newValue.length > 40) {
+            setError("Title must be 40 characters or less");
+        } else if (newValue.length > 30) {
+            setError("Title is longer than recommended 30 characters");
+        } else {
+            setError(null);
+        }
     };
 
     return (
-        <input
-            value={title}
-            onChange={changeTitle}
-            autoFocus
-            onBlur={activateViewMode}
-        />
+        <Tooltip text={error}>
+            <input
+                maxLength={45}
+                className={s.inlineEditor}
+                value={title}
+                onChange={changeTitle}
+                autoFocus
+                onBlur={activateViewMode}
+            />
+        </Tooltip>
     );
 });

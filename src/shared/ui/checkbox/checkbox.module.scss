@@ -1,4 +1,9 @@
-.Root {
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.root {
   all: unset;
 
   display: flex;
@@ -15,11 +20,11 @@
 
   &:hover {
     cursor: pointer;
-    border: 1px solid var( --secondary-green);
+    border: 1px solid var(--secondary-green);
   }
 }
 
-.Indicator {
+.indicator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +32,7 @@
   width: 25px;
   height: 25px;
 
-  color: var( --secondary-green);
+  color: var(--secondary-green);
 
   & svg {
     width: 25px;

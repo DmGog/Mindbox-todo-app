@@ -15,9 +15,9 @@ export const Checkbox = ({onChangeChecked, isChecked}: Props) => {
     };
 
     return (
-        <div style={{display: "flex", alignItems: "center"}}>
-            <Root className={s.Root} checked={isChecked} onCheckedChange={handleCheckedChange}>
-                <Indicator className={s.Indicator}>
+        <div className={s.checkbox}>
+            <Root className={s.root} checked={isChecked} onCheckedChange={handleCheckedChange}>
+                <Indicator className={s.indicator}>
                     <CheckIcon/>
                 </Indicator>
             </Root>

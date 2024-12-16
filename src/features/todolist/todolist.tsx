@@ -3,9 +3,8 @@ import {addTask, changeFilter, changeTaskStatus, deleteCompletedTasks, deleteTas
 import {useSelector} from "react-redux";
 import s from "./todolist.module.scss"
 import {FilterController, Task} from "../../widgets";
-import {AddItem, Button} from "../../shared";
+import {AddItem, Button, DialogModal} from "../../shared";
 import {useState} from "react";
-import {DialogModal} from "../../shared/ui/dialog-modal";
 import {Root, Scrollbar, Thumb, Viewport,} from "@radix-ui/react-scroll-area";
 
 
