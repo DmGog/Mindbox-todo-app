@@ -8,7 +8,7 @@
   height: 60px;
   padding: 10px 20px 10px 10px;
 
-  border-bottom: 1px solid var(--white-white-3);
+  border-bottom: 1px solid var(--white-white-4);
 
   .icon {
     display: none;
@@ -49,8 +49,25 @@
   width: 100%;
 }
 
+.text {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  color: var(--black-black-1);
+}
+
+.checkedTask {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
 .button {
   &:active {
     background-color: var(--white-white-1);
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: var(--white-white-2);
+    outline: none;
   }
 }

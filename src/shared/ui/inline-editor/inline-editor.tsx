@@ -1,6 +1,6 @@
 import {ChangeEvent, memo, useEffect, useState} from "react";
 import s from "./inline-editor.module.scss";
-import {Tooltip} from "../tooltip";
+import {Tooltip} from "@/shared";
 
 type Props = {
     value: string;

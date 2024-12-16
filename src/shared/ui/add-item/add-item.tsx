@@ -1,7 +1,7 @@
 import {ChangeEvent, KeyboardEvent, memo, useState} from "react";
-import {Button} from "../button";
+import {Button} from "@/shared";
 import s from "./add-item.module.scss"
-import ArrowDownIcon from "../../assets/icons/arrow-down.svg"
+import ArrowDownIcon from "@/shared/assets/icons/arrow-down.svg"
 
 type Props = {
     addItem: (title: string) => void

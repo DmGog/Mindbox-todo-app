@@ -1,12 +1,13 @@
-import {FilterType} from "../../features";
-import {Button} from "../../shared";
+import {Button} from "@/shared";
 import s from "./filter-controller.module.scss"
+import {memo} from "react";
+import {FilterType} from "@/entities";
 
 type Props = {
     changeFilter: (filter: FilterType) => void;
     currentFilter: FilterType;
 };
-export const FilterController = ({currentFilter, changeFilter}: Props) => {
+export const FilterController = memo(({currentFilter, changeFilter}: Props) => {
 
     return (
         <div className={s.filterController}>
@@ -16,8 +17,8 @@ export const FilterController = ({currentFilter, changeFilter}: Props) => {
                     onClickHandler={() => changeFilter("active")} disabled={currentFilter === "active"}>Active</Button>
             <Button variant={currentFilter === "completed" ? "active" : "default"}
                     onClickHandler={() => changeFilter("completed")}
-                    disabled={currentFilter === "completed"} >Completed</Button>
+                    disabled={currentFilter === "completed"}>Completed</Button>
         </div>
     );
-};
+});
 

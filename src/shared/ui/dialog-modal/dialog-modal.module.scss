@@ -23,9 +23,9 @@
   min-height: 200px;
   padding: 40px;
 
-  background: var(--white-white-2);
+  background: var(--white-white-1);
   border-radius: 14px;
-  box-shadow: 2px 6px 20px 0 var(--dark-bg-dark-bg-3);
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .title {
@@ -61,6 +61,11 @@
   &:hover {
     outline: 1px solid var(--secondary-red);
   }
+
+  &:active{
+    background-color: var(--white-white-1);
+  }
+
 }
 
 .btnNo {
@@ -68,5 +73,9 @@
 
   &:hover {
     outline: 1px solid var(--secondary-green);
+  }
+
+  &:active{
+    background-color: var(--white-white-1);
   }
 }

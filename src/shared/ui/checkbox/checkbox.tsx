@@ -1,12 +1,13 @@
 import {Indicator, Root} from "@radix-ui/react-checkbox";
 import {CheckIcon} from "@radix-ui/react-icons";
 import s from "./checkbox.module.scss"
+import {memo} from "react";
 
 type Props = {
     onChangeChecked?: (checked: boolean) => void;
     isChecked?: boolean;
 }
-export const Checkbox = ({onChangeChecked, isChecked}: Props) => {
+export const Checkbox = memo(({onChangeChecked, isChecked}: Props) => {
 
     const handleCheckedChange = (): void => {
         if (onChangeChecked) {
@@ -23,6 +24,6 @@ export const Checkbox = ({onChangeChecked, isChecked}: Props) => {
             </Root>
         </div>
     )
-}
+})
 
 

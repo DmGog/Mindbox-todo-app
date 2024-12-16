@@ -9,11 +9,20 @@ export type TaskType = {
     isDone: boolean;
 }
 
-const todolistInitialState = {
+type Todolist = {
+    tasks: TaskType[];
+    filter: FilterType;
+}
+
+const todolistInitialState: Todolist = {
     tasks: [
-        {id: "1", title: "Привет", isDone: true} as TaskType,
+        {id: "1", title: "Посмотреть тестовое", isDone: true},
+        {id: "2", title: "Сделать приложение", isDone: true},
+        {id: "3", title: "Написать тесты", isDone: true},
+        {id: "4", title: "Отправить на проверку", isDone: true},
+        {id: "5", title: "Ответ получен?", isDone: false},
     ],
-    filter: "all" as FilterType
+    filter: "all",
 };
 
 const slice = createSlice({

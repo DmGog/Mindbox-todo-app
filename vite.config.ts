@@ -4,6 +4,13 @@ import svgrPlugin from "vite-plugin-svgr";
 import * as path from "path";
 // https://vite.dev/config/
 export default defineConfig({
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: "modern-compiler",
+            },
+        },
+    },
     plugins: [
         react(),
         svgrPlugin({
@@ -16,4 +23,4 @@ export default defineConfig({
     resolve: {
         alias: [{find: "@", replacement: path.resolve(__dirname, "src")}],
     },
-})
+});

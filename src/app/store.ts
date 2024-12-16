@@ -1,6 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {useDispatch} from "react-redux";
-import {todolistSlice} from "../features/todolist/model/todolist-slice.ts";
+import {useDispatch, useSelector} from "react-redux";
+import {todolistSlice} from "@/entities";
+
 
 const rootReducer = combineReducers({
     todolist: todolistSlice
@@ -11,4 +12,5 @@ export const store = configureStore({
 export type AppRootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<AppRootState>();

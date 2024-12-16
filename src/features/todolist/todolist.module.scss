@@ -7,27 +7,7 @@
   height: 430px;
 
   background-color: var(--white-white-1);
-  box-shadow: 2px 2px 2px 2px var(--white-white-3);
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.activePanel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  padding: 10px;
-
-}
-
-.totalActiveTask {
-  min-width: 100px;
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .scrollAreaRoot {
@@ -67,4 +47,35 @@
   &:hover {
     background: var(--black-black-3);
   }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.activePanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 10px;
+
+}
+
+.totalActiveTask {
+  min-width: 100px;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+
+}
+
+.hasItems {
+  color: var(--secondary-red);
+}
+
+.noItems {
+  color: var(--secondary-green);
 }

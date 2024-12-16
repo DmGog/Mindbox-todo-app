@@ -1,11 +1,11 @@
 import s from "./task.module.scss";
-import {Button, Checkbox, InlineEditor} from "../../shared";
-import DeleteIcon from "../../shared/assets/icons/trash.svg";
-import EditIcon from "../../shared/assets/icons/edit.svg";
+import {Button, Checkbox, InlineEditor} from "@/shared";
+import DeleteIcon from "@/shared/assets/icons/trash.svg";
+import EditIcon from "@/shared/assets/icons/edit.svg";
 import clsx from "clsx";
-import {changeTaskTitle} from "../../features";
-import {useAppDispatch} from "../../app/store.ts";
-import {useState} from "react";
+import {useAppDispatch} from "@/app/store";
+import {memo, useCallback, useState} from "react";
+import {changeTaskTitle} from "@/entities";
 
 type Props = {
     id: string;
@@ -15,14 +15,12 @@ type Props = {
     updateStatus: (id: string) => void;
 };
 
-export const Task = ({title, isDone, deleteItem, id, updateStatus}: Props) => {
+export const Task = memo(({title, isDone, deleteItem, id, updateStatus}: Props) => {
     const dispatch = useAppDispatch();
     const [editMode, setEditMode] = useState(false);
-
-    const handleChangeTitle = (newTitle: string) => {
+    const handleChangeTitle = useCallback((newTitle: string) => {
         dispatch(changeTaskTitle({id, title: newTitle}));
-    };
-
+    }, [id, title]);
     return (
         <div className={s.task}>
             <div className={s.container}>
@@ -30,10 +28,12 @@ export const Task = ({title, isDone, deleteItem, id, updateStatus}: Props) => {
                 {editMode ? (
                     <InlineEditor value={title} onChange={handleChangeTitle} setEditMode={setEditMode}/>
                 ) : (
-                    <span onDoubleClick={() => setEditMode(true)}>{title}</span>
+                    <span className={clsx(s.text, {[s.checkedTask]: isDone})}
+                          onDoubleClick={() => setEditMode(true)}>{title}</span>
                 )}
             </div>
             <Button
+                disabled={isDone}
                 aria-label={"edit-button"}
                 className={clsx(s.button, s.icon, s["edit-icon"])}
                 onClickHandler={() => setEditMode(true)}
@@ -49,4 +49,4 @@ export const Task = ({title, isDone, deleteItem, id, updateStatus}: Props) => {
             </Button>
         </div>
     );
-};
+});

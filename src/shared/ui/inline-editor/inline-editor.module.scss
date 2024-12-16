@@ -4,5 +4,9 @@
 }
 
 .inlineEditor:focus {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  line-height: var(--line-height-m);
   color: var(--secondary-green);
 }
