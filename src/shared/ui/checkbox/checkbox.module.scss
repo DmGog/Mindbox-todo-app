@@ -10,12 +10,12 @@
   margin-right: 14px;
 
   opacity: 0.5;
-  border: 1px solid #D3D0D0FF;
+  border: 1px solid var(--white-white-3);
   border-radius: 50%;
 
   &:hover {
     cursor: pointer;
-    border: 1px solid #1d8c15;
+    border: 1px solid var( --secondary-green);
   }
 }
 
@@ -27,7 +27,7 @@
   width: 25px;
   height: 25px;
 
-  color: #1d8c15;
+  color: var( --secondary-green);
 
   & svg {
     width: 25px;

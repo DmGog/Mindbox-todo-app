@@ -9,11 +9,14 @@
   border-radius: 8px;
 
   &:hover {
-    outline: 1px solid #D3D0D0FF;
+    outline: 1px solid var(--white-white-3);
   }
 
+  &:active {
+    background-color: var(--white-white-2);
+  }
 }
 
 .active {
-  outline: 1px solid #ffd6d6;
+  outline: 1px solid var(--secondary-light-red);
 }

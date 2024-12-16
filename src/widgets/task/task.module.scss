@@ -6,7 +6,7 @@
 
   width: 100%;
   height: 60px;
-  padding: 10px;
+  padding: 10px 20px 10px 10px;
 
   border-bottom: 1px solid #D3D0D0FF;
 
@@ -24,15 +24,17 @@
     }
 
     &.edit-icon svg * {
-      stroke: #4CAF50;
+      stroke: var(--secondary-green);
     }
 
     &.delete-icon svg * {
-      stroke: #ee6060;
+      stroke: var(--secondary-red);
     }
   }
 
   &:hover {
+    background-color: var(--white-white-2);
+
     .icon {
       display: flex;
     }
@@ -46,3 +48,8 @@
   width: 100%;
 }
 
+.button {
+  &:active {
+    background-color: var(--white-white-1);
+  }
+}
