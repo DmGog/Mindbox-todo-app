@@ -1,1 +1,1 @@
-export * from "./useTodolist.ts"
+export * from "./useTodolist"

@@ -1,1 +1,1 @@
-export * from "./task.tsx"
+export * from "./task"

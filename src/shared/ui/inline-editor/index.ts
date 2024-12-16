@@ -1,1 +1,1 @@
-export * from "./inline-editor.tsx"
+export * from "./inline-editor"

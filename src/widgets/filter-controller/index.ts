@@ -1,1 +1,1 @@
-export * from "./filter-controller.tsx"
+export * from "./filter-controller"

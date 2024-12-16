@@ -1,1 +1,1 @@
-export * from "./dialog-modal.tsx"
+export * from "./dialog-modal"

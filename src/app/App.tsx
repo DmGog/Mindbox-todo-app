@@ -1,6 +1,6 @@
 import "./App.css"
 
-import {Todolist} from "../features";
+import {Todolist} from "@/features";
 
 function App() {
 
