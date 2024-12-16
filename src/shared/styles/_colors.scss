@@ -13,5 +13,14 @@
   --dark-bg-dark-bg-1: #0f1011;
   --dark-bg-dark-bg-2: #171a1e;
   --dark-bg-dark-bg-3: #292d32;
-  --bg-orange: #f5eee7
+  --bg-orange: #f4f1ed;
+  --shadow-color: 0deg 0% 62%;
+  --shadow-elevation-low: 0.8px 0.3px 1.3px hsl(var(--shadow-color) / 0%),
+  2.6px 1.1px 4.2px hsl(var(--shadow-color) / 38%);
+  --shadow-elevation-medium: 0.8px 0.3px 1.3px hsl(var(--shadow-color) / 0%),
+  4.7px 2px 7.7px hsl(var(--shadow-color) / 23%),
+  13.2px 5.7px 21.6px hsl(var(--shadow-color) / 47%);
+  --shadow-elevation-high: 0.8px 0.3px 1.3px hsl(var(--shadow-color) / 0%),
+  7.9px 3.4px 12.9px hsl(var(--shadow-color) / 11%),
+  14.3px 6.2px 23.4px hsl(var(--shadow-color) / 22%);
 }

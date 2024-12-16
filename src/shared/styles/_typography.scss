@@ -1,14 +1,13 @@
-@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap';
-@import 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap';
 
 :root {
-  --font-family: 'Poppins', sans-serif;
-  --font-family-second: 'Quicksand', sans-serif;
+  --font-family: 'Raleway', sans-serif;
 
   // line heights
   --line-height-m: 18px;
 
   // font weights
+  --font-weight-thin:100;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semi-bold: 600;
@@ -21,7 +20,7 @@
   --font-size-m: 16px;
   --font-size-l: 18px;
   --font-size-xl: 20px;
-  --font-size-xxl: 24px;
+  --font-size-xxl: 100px;
 
   // media
   --media-width-sm: 576px;
@@ -30,8 +29,7 @@
   --media-width-xl: 1200px;
   --media-width-xll: 1435px;
 
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizespeed;
   letter-spacing: 0.1px;
-
-  -webkit-font-smoothing: antialiased;
 }

@@ -8,7 +8,7 @@
   height: 60px;
   padding: 10px 20px 10px 10px;
 
-  border-bottom: 1px solid #D3D0D0FF;
+  border-bottom: 1px solid var(--white-white-3);
 
   .icon {
     display: none;
@@ -21,6 +21,7 @@
     & svg {
       width: 20px;
       height: 20px;
+      opacity: 0.8;
     }
 
     &.edit-icon svg * {

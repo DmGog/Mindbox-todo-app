@@ -4,7 +4,7 @@
   justify-content: space-between;
 
   width: 600px;
-  height: 60vh;
+  height: 420px;
 
   background-color: var(--white-white-1);
   box-shadow: 2px 2px 2px 2px var(--white-white-3);
@@ -23,6 +23,7 @@
 
   width: 100%;
   padding: 10px;
+
 }
 
 .totalActiveTask {
@@ -31,7 +32,7 @@
 
 .scrollAreaRoot {
   overflow: hidden;
-  height: 40vh;
+  height: 300px;
 }
 
 .scrollAreaViewport {

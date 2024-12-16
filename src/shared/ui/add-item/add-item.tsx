@@ -1,6 +1,7 @@
 import {ChangeEvent, KeyboardEvent, memo, useState} from "react";
 import {Button} from "../button";
 import s from "./add-item.module.scss"
+import ArowDownIcon from "../../assets/icons/arrow-down.svg"
 
 type Props = {
     addItem: (title: string) => void
@@ -32,7 +33,7 @@ export const AddItem = memo(function ({addItem}: Props) {
             if (error !== null) {
                 setError(null)
             }
-            if (e.charCode === 13) {
+            if (e.key === "Enter") {
                 addItemHandler()
             }
         }
@@ -43,10 +44,13 @@ export const AddItem = memo(function ({addItem}: Props) {
 
                     value={title}
                     onChange={onChangeHandler}
-                    onKeyPress={onKeyPressHandler}
+                    onKeyDown={onKeyPressHandler}
                     placeholder="What needs to be done?"
                 />
-                {title && <Button onClickHandler={addItemHandler}>add</Button>}
+                <div className={s.icon}>
+                    <ArowDownIcon/>
+                </div>
+                {title && <Button onClickHandler={addItemHandler} className={s.btnItem}>add</Button>}
             </div>
         )
     }
