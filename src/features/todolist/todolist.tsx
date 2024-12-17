@@ -1,9 +1,10 @@
 import s from "./todolist.module.scss"
-import {FilterController, Task} from "@/widgets";
+import {FilterController} from "@/widgets";
 import {AddItem, Button, DialogModal} from "@/shared";
 import {Root, Scrollbar, Thumb, Viewport,} from "@radix-ui/react-scroll-area";
 import clsx from "clsx";
-import {useTodolist} from "@/entities";
+import {useTodolist} from "./hooks";
+import {Task} from "./ui";
 
 
 export const Todolist = () => {

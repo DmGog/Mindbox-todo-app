@@ -1,6 +1,13 @@
 import {useAppDispatch, useAppSelector} from "@/app/store";
 import {useCallback, useState} from "react";
-import {addTask, changeFilter, changeTaskStatus, deleteCompletedTasks, deleteTask, FilterType} from "../model";
+import {
+    addTask,
+    changeFilter,
+    changeTaskStatus,
+    deleteCompletedTasks,
+    deleteTask,
+    FilterType
+} from "@/entities";
 
 export const useTodolist = () => {
     const tasks = useAppSelector(state => state.todolist.tasks);
@@ -23,18 +30,18 @@ export const useTodolist = () => {
         }
     }, [dispatch, tasks]);
 
-    const confirmDelete = useCallback(() => {
+    const confirmDelete = () => {
         if (taskToDelete) {
             dispatch(deleteTask({id: taskToDelete}));
             setTaskToDelete(null);
         }
         setShowModal(false);
-    }, [dispatch, taskToDelete]);
+    }
 
-    const cancelDelete = useCallback(() => {
+    const cancelDelete = () => {
         setTaskToDelete(null);
         setShowModal(false);
-    }, []);
+    }
 
     const handleChangeTaskStatus = useCallback((id: string) => {
         dispatch(changeTaskStatus({id}));

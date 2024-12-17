@@ -32,21 +32,22 @@ export const Task = memo(({title, isDone, deleteItem, id, updateStatus}: Props) 
                           onDoubleClick={() => setEditMode(true)}>{title}</span>
                 )}
             </div>
-            <Button
-                disabled={isDone}
-                aria-label={"edit-button"}
-                className={clsx(s.button, s.icon, s["edit-icon"])}
-                onClickHandler={() => setEditMode(true)}
-            >
-                <EditIcon/>
-            </Button>
-            <Button
-                aria-label={"delete-button"}
-                className={clsx(s.button, s.icon, s["delete-icon"])}
-                onClickHandler={() => deleteItem(id)}
-            >
-                <DeleteIcon/>
-            </Button>
+            <div className={s.btnWrapper}>
+                {!isDone &&
+                    <Button
+                        aria-label={"edit-button"}
+                        className={clsx(s.button, s.icon, s["edit-icon"])}
+                        onClickHandler={() => setEditMode(true)}>
+                        <EditIcon/>
+                    </Button>}
+                <Button
+                    aria-label={"delete-button"}
+                    className={clsx(s.button, s.icon, s["delete-icon"])}
+                    onClickHandler={() => deleteItem(id)}
+                >
+                    <DeleteIcon/>
+                </Button></div>
+
         </div>
     );
 });
