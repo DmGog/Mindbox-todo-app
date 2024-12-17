@@ -9,7 +9,7 @@ export type TaskType = {
     isDone: boolean;
 }
 
-type Todolist = {
+export type Todolist = {
     tasks: TaskType[];
     filter: FilterType;
 }
