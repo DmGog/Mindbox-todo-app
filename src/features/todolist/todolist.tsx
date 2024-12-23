@@ -48,7 +48,8 @@ export const Todolist = () => {
                 <span
                     className={itemTextClass}>{totalActiveTasks.length ? `${totalActiveTasks.length} items left` : "no tasks left"}</span>
                 <FilterController changeFilter={handleChangeFilter} currentFilter={currentFilter}/>
-                <Button onClickHandler={handleDeleteCompletedTasks}>Clear completed</Button>
+                <Button className={s.btnDeleteCompleted} onClickHandler={handleDeleteCompletedTasks} disabled={tasks.filter(e => e.isDone).length === 0}>Clear
+                    completed</Button>
             </div>
             <DialogModal isOpen={showModal} title={actionType === "single" ? "Delete task" : "Delete tasks"}
                          onClickYes={confirmDelete}

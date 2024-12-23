@@ -79,3 +79,17 @@
 .noItems {
   color: var(--secondary-green);
 }
+
+.btnDeleteCompleted {
+  color: var(--secondary-green);
+
+  &:disabled {
+    cursor: default;
+    color: var(--secondary-red);
+    outline: none;
+
+    &:active {
+      background-color: var(--white-white-1);
+    }
+  }
+}
