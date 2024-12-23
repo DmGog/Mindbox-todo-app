@@ -1,5 +1,5 @@
-import {useAppDispatch, useAppSelector} from "@/app/store";
-import {useCallback, useState} from "react";
+import { useAppDispatch, useAppSelector } from "@/app/store";
+import { useCallback, useState } from "react";
 import {
     addTask,
     changeFilter,
@@ -14,45 +14,50 @@ export const useTodolist = () => {
     const currentFilter = useAppSelector(state => state.todolist.filter);
     const [showModal, setShowModal] = useState(false);
     const [taskToDelete, setTaskToDelete] = useState<string | null>(null);
+    const [actionType, setActionType] = useState<'single' | 'all' | null>(null);
     const dispatch = useAppDispatch();
 
     const handleAddItem = useCallback((title: string) => {
-        dispatch(addTask({title}));
+        dispatch(addTask({ title }));
     }, [dispatch]);
 
     const handleDeleteItem = useCallback((id: string) => {
         const task = tasks.find(task => task.id === id);
-        if (task && task.isDone) {
-            dispatch(deleteTask({id}));
-        } else {
-            setTaskToDelete(id);
+        if (task) {
+            setTaskToDelete(task.id);
+            setActionType('single');
             setShowModal(true);
         }
-    }, [dispatch, tasks]);
+    }, [tasks]);
+
+    const handleDeleteCompletedTasks = useCallback(() => {
+        setActionType('all');
+        setShowModal(true);
+    }, []);
 
     const confirmDelete = () => {
-        if (taskToDelete) {
-            dispatch(deleteTask({id: taskToDelete}));
+        if (actionType === 'single' && taskToDelete) {
+            dispatch(deleteTask({ id: taskToDelete }));
             setTaskToDelete(null);
+        } else if (actionType === 'all') {
+            dispatch(deleteCompletedTasks());
         }
         setShowModal(false);
+        setActionType(null);
     }
 
     const cancelDelete = () => {
         setTaskToDelete(null);
         setShowModal(false);
+        setActionType(null);
     }
 
     const handleChangeTaskStatus = useCallback((id: string) => {
-        dispatch(changeTaskStatus({id}));
+        dispatch(changeTaskStatus({ id }));
     }, [dispatch]);
 
     const handleChangeFilter = useCallback((filter: FilterType) => {
-        dispatch(changeFilter({filter}));
-    }, [dispatch]);
-
-    const handleDeleteCompletedTasks = useCallback(() => {
-        dispatch(deleteCompletedTasks());
+        dispatch(changeFilter({ filter }));
     }, [dispatch]);
 
     const filteredTasks = tasks.filter(task => {
@@ -74,6 +79,7 @@ export const useTodolist = () => {
         handleChangeTaskStatus,
         handleChangeFilter,
         handleDeleteCompletedTasks,
-        currentFilter
+        currentFilter,
+        actionType
     };
 };

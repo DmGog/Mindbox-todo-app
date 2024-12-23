@@ -1,5 +1,6 @@
 {
   "name": "todo-app",
+  "homepage": "https://Dmitriy.github.io/Mindbox-todo-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -23,6 +26,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.11",
     "clsx": "^2.0.0",
+    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.2.0",
@@ -33,12 +37,12 @@
     "@eslint/js": "^9.15.0",
     "@it-incubator/stylelint-config": "^2.0.0",
     "@testing-library/jest-dom": "^6.6.2",
-    "@vitejs/plugin-react-swc": "^3.5.0",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.2",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",

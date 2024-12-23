@@ -19,7 +19,8 @@ export const Todolist = () => {
         totalActiveTasks,
         cancelDelete,
         showModal,
-        currentFilter
+        currentFilter,
+        actionType
     } = useTodolist()
 
     const itemTextClass = clsx(s.totalActiveTask, {
@@ -49,8 +50,11 @@ export const Todolist = () => {
                 <FilterController changeFilter={handleChangeFilter} currentFilter={currentFilter}/>
                 <Button onClickHandler={handleDeleteCompletedTasks}>Clear completed</Button>
             </div>
-            <DialogModal isOpen={showModal} title={"Delete Task"} onClickYes={confirmDelete}
-                         onClickNo={cancelDelete}> Are you sure you want to delete the uncompleted task?</DialogModal>
+            <DialogModal isOpen={showModal} title={actionType === "single" ? "Delete task" : "Delete tasks"}
+                         onClickYes={confirmDelete}
+                         onClickNo={cancelDelete}>  {actionType === "single"
+                ? "Are you sure you want to delete this task?"
+                : "Are you sure you want to delete all completed tasks?"}</DialogModal>
         </div>
     );
 };

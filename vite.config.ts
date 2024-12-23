@@ -5,6 +5,7 @@ import * as path from "path";
 import "vitest/config"
 
 export default defineConfig({
+    base: "/Mindbox-todo-app/",
     css: {
         preprocessorOptions: {
             scss: {
