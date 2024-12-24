@@ -1,12 +1,22 @@
-import {ChangeEvent, KeyboardEvent, memo, useState} from "react";
+import {ChangeEvent, KeyboardEvent, memo, PropsWithChildren, useState} from "react";
 import {Button} from "@/shared";
 import s from "./add-item.module.scss"
 import ArrowDownIcon from "@/shared/assets/icons/arrow-down.svg"
+import clsx from "clsx";
 
 type Props = {
     addItem: (title: string) => void
+    placeholder?: string
+    showButton?: boolean
+    className?: string
 }
-export const AddItem = memo(function ({addItem}: Props) {
+export const AddItem = memo(function ({
+                                          addItem,
+                                          placeholder = "What needs to be done?",
+                                          showButton = false,
+                                          children,
+                                          className
+                                      }: PropsWithChildren<Props>) {
         let [title, setTitle] = useState("")
         let [error, setError] = useState<string | null>(null)
 
@@ -44,16 +54,19 @@ export const AddItem = memo(function ({addItem}: Props) {
         }
 
         return (
-            <div className={s.addItem}>
+            <div className={clsx(s.addItem, className)}>
                 <input
                     maxLength={45}
                     value={title}
                     onChange={onChangeHandler}
                     onKeyDown={onKeyPressHandler}
-                    placeholder="What needs to be done?"
+                    placeholder={placeholder}
                 />
                 {error && <span className={s.error}>{error}</span>}
-                <Button onClickHandler={addItemHandler} className={s.icon} disabled={!title}><ArrowDownIcon/></Button>
+                {children}
+                {showButton &&
+                    <Button onClickHandler={addItemHandler} className={s.icon}
+                            disabled={!title}><ArrowDownIcon/></Button>}
             </div>
         )
     }
