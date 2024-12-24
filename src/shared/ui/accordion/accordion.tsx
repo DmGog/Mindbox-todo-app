@@ -3,6 +3,8 @@ import {Root, Item, Header, Trigger, Content} from "@radix-ui/react-accordion";
 import {PropsWithChildren} from "react";
 import s from "./accordion.module.scss"
 import {Button} from "@/shared";
+import TrashIcon from "@/shared/assets/icons/trash.svg";
+import clsx from "clsx";
 
 type Props = {
     title: string;
@@ -14,10 +16,10 @@ export const Accordion = ({children, title, deleteItem}: PropsWithChildren<Props
             <Item value="item-1">
                 <Header>
                     <Trigger className={s.trigger}>
-                        <span>{title}</span>
-                        <ChevronDownIcon className={s.chevron} aria-hidden/>
+                        <div className={s.titleWrapper}><span className={s.title}>{title}</span>
+                            <ChevronDownIcon className={s.chevron} aria-hidden/></div>
                         <Button
-                            onClickHandler={deleteItem}>delete</Button>
+                            onClickHandler={deleteItem} className={clsx(s.button, s.icon)} aria-label={"delete-button"}><TrashIcon/></Button>
                     </Trigger>
                 </Header>
                 <Content>{children}</Content>
