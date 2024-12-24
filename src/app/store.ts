@@ -1,11 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {useDispatch, useSelector} from "react-redux";
-import {todolistSlice} from "@/entities";
 import {loadState, saveState} from "@/shared";
+import {todolistsSlice} from "@/entities";
 
 
 const rootReducer = combineReducers({
-    todolist: todolistSlice
+    todolists: todolistsSlice
 });
 
 const preloadedState = loadState("todo-state");

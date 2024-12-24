@@ -13,14 +13,15 @@ type Props = {
     isDone: boolean;
     deleteItem: (id: string) => void;
     updateStatus: (id: string) => void;
+    todolistId: string;
 };
 
-export const Task = memo(({title, isDone, deleteItem, id, updateStatus}: Props) => {
+export const Task = memo(({title, isDone, deleteItem, id, updateStatus, todolistId}: Props) => {
     const dispatch = useAppDispatch();
     const [editMode, setEditMode] = useState(false);
     const handleChangeTitle = useCallback((newTitle: string) => {
-        dispatch(changeTaskTitle({id, title: newTitle}));
-    }, [id, title]);
+        dispatch(changeTaskTitle({title: newTitle, id, todolistId}));
+    }, [id, todolistId]);
     return (
         <div className={s.task}>
             <div className={s.container}>
