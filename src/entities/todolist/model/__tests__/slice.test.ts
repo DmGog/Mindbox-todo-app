@@ -25,6 +25,7 @@ beforeEach(() => {
                     {id: "5", title: "Ответ получен?", isDone: false},
                 ],
                 filter: "all",
+                active: false
             },
             {
                 id: "todolist-2",
@@ -35,6 +36,7 @@ beforeEach(() => {
                     {id: "3", title: "Написать тесты", isDone: true},
                 ],
                 filter: "all",
+                active: false
             }
         ],
     }
