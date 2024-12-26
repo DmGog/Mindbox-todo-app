@@ -1,10 +1,10 @@
 import {
-    addTask,
+    addTask, addTodolist,
     changeFilter,
     changeTaskStatus,
     changeTaskTitle,
     deleteCompletedTasks,
-    deleteTask,
+    deleteTask, deleteTodolist,
     FilterType,
     todolistsSlice, TodolistsState
 } from "@/entities";
@@ -25,7 +25,6 @@ beforeEach(() => {
                     {id: "5", title: "Ответ получен?", isDone: false},
                 ],
                 filter: "all",
-                active: false
             },
             {
                 id: "todolist-2",
@@ -36,13 +35,25 @@ beforeEach(() => {
                     {id: "3", title: "Написать тесты", isDone: true},
                 ],
                 filter: "all",
-                active: false
             }
         ],
     }
 });
 
 describe("todolistSlice", () => {
+
+    test("correct todolist should be added", () => {
+        const endState = todolistsSlice(startState, addTodolist({title: "New todo"}));
+        expect(endState.todolists.length).toBe(3);
+        expect(endState.todolists[2].title).toBe("New todo");
+    });
+
+    test("correct todolist should be deleted", () => {
+        const endState = todolistsSlice(startState, deleteTodolist({id: "todolist-1"}));
+        expect(endState.todolists.length).toBe(1);
+        expect(endState.todolists.every((t) => t.id !== "todolist-1")).toBeTruthy();
+    });
+
     test("correct task should be deleted", () => {
         const endState = todolistsSlice(startState, deleteTask({id: "2", todolistId: "todolist-1"}));
         const todolist = endState.todolists.find(t => t.id === "todolist-1")

@@ -37,9 +37,8 @@ function App() {
                                 title={"Delete todolist"}
                                 onClickYes={() => handleDeleteItem(todolist.id)}
                                 onClickNo={() => setShowModalId(null)}
-                            >
-                                Are you sure you want to delete this todolist: "{todolist.title}"?
-                            </DialogModal>
+                                text={`Are you sure you want to delete this todolist: ${todolist.title}?`}
+                            />
                         </div>
                     ))}
                 </div>

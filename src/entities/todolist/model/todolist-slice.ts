@@ -14,7 +14,6 @@ export type Todolist = {
     title: string
     tasks: TaskType[];
     filter: FilterType;
-    active: boolean;
 }
 export type TodolistsState = {
     todolists: Todolist[];
@@ -33,7 +32,6 @@ const todolistsInitialState: TodolistsState = {
                 {id: "5", title: "Ответ получен?", isDone: false},
             ],
             filter: "all",
-            active:false
         }
     ],
 };
@@ -47,7 +45,6 @@ const slice = createSlice({
                 title: action.payload.title,
                 tasks: [],
                 filter: "all",
-                active:false
             };
             state.todolists.push(newTodolist);
         },

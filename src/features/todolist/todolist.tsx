@@ -70,11 +70,10 @@ export const Todolist = ({todolistId, todolistTitle, handleDeleteTodo}: Todolist
                     title={actionType === "single" ? "Delete task" : "Delete tasks"}
                     onClickYes={confirmDelete}
                     onClickNo={cancelDelete}
-                >
-                    {actionType === "single"
+                    text={actionType === "single"
                         ? "Are you sure you want to delete this task?"
                         : "Are you sure you want to delete all completed tasks?"}
-                </DialogModal>
+                />
             </div>
         </Accordion>
     );
