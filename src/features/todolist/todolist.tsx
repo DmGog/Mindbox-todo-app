@@ -1,15 +1,17 @@
 import s from "./todolist.module.scss";
 import {FilterController} from "@/widgets";
-import {AddItem, Button, DialogModal, Scroll} from "@/shared";
+import {Accordion, AddItem, Button, DialogModal, Scroll} from "@/shared";
 import clsx from "clsx";
 import {useTodolist} from "./hooks";
 import {Task} from "./ui";
 
 type TodolistProps = {
     todolistId: string;
+    todolistTitle: string,
+    handleDeleteTodo: () => void
 }
 
-export const Todolist = ({todolistId}: TodolistProps) => {
+export const Todolist = ({todolistId, todolistTitle, handleDeleteTodo}: TodolistProps) => {
     const {
         handleDeleteCompletedTasks,
         handleChangeFilter,
@@ -31,8 +33,10 @@ export const Todolist = ({todolistId}: TodolistProps) => {
     });
 
     return (
+        <Accordion id={todolistId} title={todolistTitle} deleteItem={
+            handleDeleteTodo}>
             <div className={s.todolist}>
-                <AddItem addItem={handleAddItem} showButton/>
+                <AddItem addItem={handleAddItem} showButtonArrow/>
                 <div className={s.container}>
                     <Scroll>
                         {tasks.map(t => (
@@ -66,12 +70,12 @@ export const Todolist = ({todolistId}: TodolistProps) => {
                     title={actionType === "single" ? "Delete task" : "Delete tasks"}
                     onClickYes={confirmDelete}
                     onClickNo={cancelDelete}
-                >
-                    {actionType === "single"
+                    text={actionType === "single"
                         ? "Are you sure you want to delete this task?"
                         : "Are you sure you want to delete all completed tasks?"}
-                </DialogModal>
+                />
             </div>
+        </Accordion>
     );
 };
 

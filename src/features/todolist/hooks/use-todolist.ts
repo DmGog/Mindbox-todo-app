@@ -1,6 +1,13 @@
 import {useAppDispatch, useAppSelector} from "@/app/store";
 import {useCallback, useState} from "react";
-import {addTask, changeFilter, changeTaskStatus, deleteCompletedTasks, deleteTask, FilterType} from "@/entities";
+import {
+    addTask,
+    changeFilter,
+    changeTaskStatus,
+    deleteCompletedTasks,
+    deleteTask,
+    FilterType
+} from "@/entities";
 
 export const useTodolist = (todolistId: string) => {
     const tasks = useAppSelector(state => state.todolists.todolists.find(todolist => todolist.id === todolistId)?.tasks || []);
@@ -58,7 +65,6 @@ export const useTodolist = (todolistId: string) => {
         if (currentFilter === "active") return !task.isDone;
         return true;
     });
-
     const totalActiveTasks = tasks.filter(task => !task.isDone).length;
 
     return {

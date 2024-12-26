@@ -87,4 +87,24 @@
     font-weight: var(--font-weight-medium);
     color: var(--secondary-red);
   }
+
+  .btnAdd {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    outline: none;
+
+    & svg * {
+      stroke: var(--secondary-green);
+    }
+  }
 }
